@@ -1,9 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate} from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate()
   function handleSearchKeyDown(e) {
     if (e.key === 'Enter' && e.target.value.trim()) {
-
+      navigate('/search?q=' +encodeURIComponent(e.target.value.trim()))
       e.target.value = '';
     }
   }
